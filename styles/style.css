@@ -412,11 +412,6 @@
 	inline-size: 100%;
 }
 
-.footer__dialog::backdrop {
-	opacity: 0.75;
-	background-color: var(--bg-color);
-}
-
 /* далее кифреймы */
 
 @keyframes header__button-hover {
