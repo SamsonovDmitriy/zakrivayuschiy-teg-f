@@ -7,7 +7,7 @@
 		<title>Закрывающий тег</title>
 		<link rel="icon" href="./images/favicon.ico" sizes="any" />
 		<link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
-		<link rel="apple-touch-icon" href="./images/mobile-ico3.webp" />
+		<link rel="apple-touch-icon" href="./images/mobile-icon.png" />
 		<link rel="stylesheet" href="./fonts/fonts.css" />
 		<link rel="stylesheet" href="./styles/variables.css" />
 		<link rel="stylesheet" href="./styles/globals.css" />
@@ -19,18 +19,14 @@
 	<body class="page">
 		<header class="header content">
 			<div class="header__logo-group">
-				<span class="header__logo">&lt;/HTML&gt;</span>
+				<a class="header__logo">&lt;/html&gt;</a>
 				<h1 class="header__title">ЗАКРЫВАЮЩИй ТЕГ</h1>
 			</div>
 			<nav class="theme-menu header__theme-menu">
 				<!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
 				<ul class="theme-menu__list">
 					<li class="theme-menu__item">
-						<button
-							type="button"
-							data-theme="dark"
-							class="theme-menu__button button"
-						>
+						<button type="button" data-theme="dark" class="theme-menu__button">
 							Темно
 						</button>
 					</li>
@@ -39,17 +35,13 @@
 							type="button"
 							data-theme="auto"
 							disabled
-							class="theme-menu__button button"
+							class="theme-menu__button"
 						>
 							Авто
 						</button>
 					</li>
 					<li class="theme-menu__item">
-						<button
-							type="button"
-							data-theme="light"
-							class="theme-menu__button button"
-						>
+						<button type="button" data-theme="light" class="theme-menu__button">
 							Светло
 						</button>
 					</li>
@@ -63,15 +55,17 @@
 						<h2 class="card__title">
 							Фритрек и нулевой спринт: Подготовка к работе
 						</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/ну поехали&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">
+								&lt;/ну поехали&gt;
+							</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__only-shadow"
 								src="./images/card-1.webp"
 								alt="Дорога, уходящая вдаль"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								Это было самое начало пути. На этом этапе важно было
@@ -84,8 +78,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									width="39"
 									height="36"
@@ -120,7 +115,9 @@
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -130,15 +127,15 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">1 спринт: Я — чистый лист</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/сложно!&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">&lt;/сложно!&gt;</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-brightness"
 								src="./images/card-2.webp"
 								alt="Зимний лес, туман, горы"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								На первых этапах мы работали со страхами и сомнениями, которые
@@ -155,8 +152,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -180,17 +178,18 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -200,15 +199,15 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">1 спринт: А если не получится?</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/эйфория&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">&lt;/эйфория&gt;</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-grayscale"
 								src="./images/card-3.webp"
 								alt="одинокий осенний лист на дороге"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								Первый проект — позади! Но это всё ещё самое начало пути.
@@ -223,8 +222,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -248,16 +248,19 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
-							<button class="card__like-button button-hover button">
+							<button
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
+							>
 								<span class="button__text">Like</span>
 							</button>
 						</div>
@@ -266,15 +269,17 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">2 спринт: Погоня за идеалом</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/необъятность&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">
+								&lt;/необъятность&gt;
+							</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-hue-rotate"
 								src="./images/card-4.webp"
 								alt="колесо обозрения на закате"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								На этом этапе вы уже достаточно разбирались в основах вёрстки,
@@ -291,8 +296,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -316,17 +322,18 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -336,15 +343,17 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">2 спринт: О тех, кто рядом</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/поддержка&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">
+								&lt;/поддержка&gt;
+							</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-contrast"
 								src="./images/card-5.webp"
 								alt="2 котейки, один в коробке, другой сверху"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								Всё это время вы были не одиноки (хотя, возможно, иногда и
@@ -362,8 +371,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -387,17 +397,18 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -407,15 +418,15 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">3 спринт: Обходные стратегии</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/инженер&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">&lt;/инженер&gt;</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-saturate"
 								src="./images/card-6.webp"
 								alt="воздушный шар, небольшой городок и горы"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								На этом курсе вы постоянно решали разные задачи. В какой-то
@@ -429,8 +440,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -454,16 +466,19 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
-							<button class="card__like-button button-hover button">
+							<button
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
+							>
 								<span class="button__text">Like</span>
 							</button>
 						</div>
@@ -472,15 +487,17 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">3 спринт: Когда опускаются руки</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/мотивация&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">
+								&lt;/мотивация&gt;
+							</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-grayscale"
 								src="./images/card-7.webp"
 								alt="мужчина, смотрящий вдаль на горы"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								Во время учёбы часто возникает чувство, когда не знаешь, за что
@@ -497,8 +514,9 @@
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -522,17 +540,18 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -542,15 +561,17 @@
 				<li class="list-item">
 					<article class="card">
 						<h2 class="card__title">«Сейчас я здесь»</h2>
-						<div class="card__image-container">
-							<span class="card__watermark">&lt;/только вперёд&gt;</span>
+						<figure class="card__image-container">
+							<figcaption class="card__watermark">
+								&lt;/только вперёд&gt;
+							</figcaption>
 							<img
 								loading="lazy"
-								class="card__img"
+								class="card__img img-filter__shadow-and-blur"
 								src="./images/card-8.webp"
 								alt="виртуальная реальность, кубики с вопросами"
 							/>
-						</div>
+						</figure>
 						<div class="card__text-container">
 							<p class="card__text">
 								Сейчас вы уже очень много знаете о вёрстке. Но это только
@@ -564,13 +585,13 @@
 								Мне кажется, что важность надёжного фундамента трудно
 								переоценить, не так ли? Впереди много и много всего, мир
 								разработки развивается намного быстрее, чем можно его познать,
-								зато скучно не будет! Шагаем по мостику в новый, загадочный
-								мир!
+								зато скучно не будет! Шагаем по мостику в новый, загадочный мир!
 							</p>
 						</div>
 						<div class="button__layout">
-							<button class="card__icon-button">
+							<button id="like-button" type="button" class="card__icon-button">
 								<svg
+									aria-hidden="true"
 									class="like-icon"
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -594,17 +615,18 @@
 											fill="none"
 											d="M18 15h-3v3h3v-3Zm3 0h3v3h-3v-3Zm0 0h-3v3h3v-3Zm0-3h-3v3h3v-3Zm0 6h-3v3h3v-3Z"
 										/>
-
-										<path
-											class="sparks"
-											fill="var(--heart-main-color)"
-											d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
-										/>
 									</g>
+									<path
+										class="sparks"
+										fill="var(--heart-main-color)"
+										d="M36 13h3v3h-3v-3Zm-9 14h3v3h-3v-3Zm-9 6h3v3h-3v-3Zm-9-6h3v3H9v-3ZM24 0h3v3h-3V0Zm9 3h3v3h-3V3ZM3 3h3v3H3V3Zm9-3h3v3h-3V0ZM0 13h3v3H0v-3Z"
+									/>
 								</svg>
 							</button>
 							<button
-								class="card__like-button button-hover button button-shadow"
+								aria-labelledby="like-button"
+								type="button"
+								class="card__like-button button"
 							>
 								<span class="button__text">Like</span>
 							</button>
@@ -612,41 +634,37 @@
 					</article>
 				</li>
 			</ul>
-		</main>
-		<footer class="footer">
-			<button
-				type="button"
-				onclick="window['footer__dialog'].showModal()"
-				aria-controls="footer__dialog"
-				class="footer__button button-hover button"
-			>
-				<svg viewBox="0 0 21 21" class="footer__button-svg">
-					<use href="#floppy" class="floppy"></use>
-				</svg>
-				<span class="button__text">Сохранить на память</span>
-			</button>
-			<dialog class="footer__dialog" id="footer__dialog">
-				<div class="footer__dialog-text-container">
-					<svg
-						viewBox="0 0 21 21"
-						class="footer__dialog-button-svg"
-						style="inline-size: 78px; block-size: 50px"
-					>
-						<use href="#floppy" class="floppy"></use>
-					</svg>
-					<p class="footer__dialog-text card__text">
-						Вставьте дискету, чтобы продолжить
-					</p>
-				</div>
+			<div class="save-button-layout">
 				<button
 					type="button"
-					onclick="window['footer__dialog'].close()"
-					class="footer__dialog-button button button-shadow"
+					onclick="window['section-save__dialog'].showModal()"
+					aria-controls="section-save__dialog"
+					class="section-save__button button"
 				>
-					ок
+					<svg viewBox="0 0 21 21" class="section-save__button-svg">
+						<use href="#floppy" class="floppy"></use>
+					</svg>
+					<span class="button__text">Сохранить на память</span>
 				</button>
-			</dialog>
-		</footer>
+				<dialog class="section-save__dialog" id="section-save__dialog">
+					<div class="section-save__dialog-text-container">
+						<svg viewBox="0 0 21 21" class="section-save__dialog-button-svg">
+							<use href="#floppy" class="floppy"></use>
+						</svg>
+						<p class="section-save__dialog-text card__text">
+							Вставьте дискету, чтобы продолжить
+						</p>
+					</div>
+					<form method="dialog">
+						<button type="submit" class="section-save__dialog-button button">
+							<span class="button__text"> ок </span>
+						</button>
+					</form>
+				</dialog>
+			</div>
+		</main>
+		<!-- данная иконка не лишняя, я ссылаюсь на эту иконку в проекте тегом use
+		это иконка дискеты, по заданию она вставлена через symbol в конце проекта -->
 		<svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<symbol id="floppy" fill="currentColor">
 				<path
