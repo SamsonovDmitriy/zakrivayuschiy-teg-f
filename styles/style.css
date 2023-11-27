@@ -211,10 +211,6 @@
 	filter: var(--img-filter-shadow) saturate(2);
 }
 
-.img-filter__shadow-and-grayscale {
-	filter: var(--img-filter-shadow) grayscale(0.4);
-}
-
 .img-filter__shadow-and-blur {
 	filter: var(--img-filter-shadow) blur(1px);
 }
