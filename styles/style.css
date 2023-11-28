@@ -36,8 +36,7 @@
 }
 
 .content {
-	margin-inline-start: 1vw;
-	inline-size: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+	inline-size: clamp(375px, 50%, 700px);
 }
 
 .header {
@@ -53,7 +52,7 @@
 	align-items: center;
 	gap: 1.25rem;
 	margin-block-end: 21px;
-	font-family: var(--accent-font), serif;
+	font-family: var(--accent-font), fantasy;
 }
 
 .header__logo {
@@ -63,6 +62,7 @@
 
 .header__title {
 	font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+	text-transform: uppercase;
 }
 
 .theme-menu {
@@ -80,11 +80,16 @@
 .theme-menu__button {
 	border: none;
 	padding: 0;
-	font-family: var(--accent-font), serif;
+	font-family: var(--accent-font), fantasy;
 	font-size: 0.875rem;
 	text-transform: uppercase;
 	background-color: transparent;
+	transition: opacity 0.3s ease;
 	cursor: pointer;
+}
+
+.theme-menu__button:hover {
+	opacity: 0.6;
 }
 
 .theme-menu__button:focus {
@@ -98,11 +103,18 @@
 	outline: none;
 }
 
+.theme-menu__button:focus-visible::after {
+	transform: scaleX(1);
+}
+
 .theme-menu__button::after {
 	content: '';
 	display: block;
 	opacity: 0.6;
 	background-color: var(--accent-color, #000);
+	transition: transform 0.3s ease;
+	transform: scaleX(0);
+	transform-origin: left;
 	block-size: 2px;
 	inline-size: 100%;
 }
@@ -119,8 +131,9 @@
 	content: '▶';
 	position: absolute;
 	color: var(--accent-color, #000);
-	/* здесь трудно избежать отрицательных значений, так как длина слов разная, и координаты стрелочки будут плавать */
+	animation: header__button-arrow 0.5s ease-in-out infinite alternate;
 	inset-inline-start: -16px;
+	inset-block: 0;
 }
 
 .list {
@@ -141,14 +154,13 @@
 
 .card__title {
 	padding-inline: 10px;
-	padding-block: 6px 8px;
+	padding-block: 6px 6px;
 	font-size: 18px;
 	font-variation-settings: var(--accent-font-weight);
 }
 
 .card__image-container {
 	position: relative;
-	inset: 0;
 	margin: 0;
 }
 
@@ -157,7 +169,7 @@
 	z-index: 1;
 	margin: 0;
 	opacity: 0.5;
-	font-family: var(--accent-font), serif;
+	font-family: var(--accent-font), fantasy;
 	/* увеличиваю font-size, так как на светлой теме при моих картинках размер 14px почти не виден из-за светлости картинок */
 	font-size: 16px;
 	text-transform: uppercase;
@@ -179,6 +191,7 @@
 }
 
 .card__img {
+	/* пробовал задавать для блока, но появляется странный отступ снизу, который не смог убрать */
 	border-block: 2px solid var(--accent-color, #000);
 	object-fit: cover;
 	max-block-size: 696px;
@@ -233,13 +246,19 @@
 	margin-block-start: 27px;
 	border: none;
 	padding-block-end: 37px;
+	outline: none;
 	background-color: transparent;
+	transition: outline 0.3s ease;
 	cursor: pointer;
 	block-size: 32px;
 }
 
 .card__icon-button:focus {
 	outline: none;
+}
+
+.card__icon-button:focus-visible {
+	outline: 2px solid var(--accent-color, #000);
 }
 
 .card__like-button {
@@ -260,10 +279,20 @@
 	border: 2px solid var(--accent-color, #000);
 	padding-block-start: 12px;
 	padding-block-end: 12px;
-	font-family: var(--accent-font), serif;
+	box-shadow: none;
+	font-family: var(--accent-font), fantasy;
 	font-size: 0.875rem;
-	background-color: transparent;
+	background-color: var(--bg-color);
+	transition: box-shadow 0.3s ease;
 	cursor: pointer;
+}
+
+.button:focus {
+	outline: none;
+}
+
+.button:focus-visible {
+	box-shadow: 2px 2px var(--accent-color, #000);
 }
 
 .button::before {
@@ -271,22 +300,25 @@
 	position: absolute;
 	inset: 0;
 	background-color: var(--accent-color, #000);
+	transition: transform 0.5s ease-in-out;
+	transform: scaleX(0);
 	transform-origin: left;
 	inline-size: 100%;
 	block-size: 100%;
 }
 
+.button:hover::before {
+	transform: scaleX(1);
+}
+
 .save-button-layout {
-	position: relative;
 	display: flex;
 	justify-content: center;
-	margin-inline-start: 13px;
 	margin-block-start: 50px;
 }
 
 .section-save__button {
-	background-color: var(--bg-color);
-	mix-blend-mode: difference;
+	padding-inline: 16px;
 	min-block-size: 55px;
 }
 
@@ -298,11 +330,15 @@
 }
 
 .section-save__dialog {
+	padding-inline: 32px;
+	padding-block: 25px;
 	color: var(--accent-color);
-	font-family: var(--accent-font), serif;
+	font-family: var(--accent-font), fantasy;
+	font-size: 14px;
+	line-height: 150%;
+	text-transform: uppercase;
 	background-color: var(--bg-color);
-	max-inline-size: 353px;
-	/* min-block-size: 191px; */
+	max-inline-size: 357px;
 }
 
 .section-save__dialog::backdrop {
@@ -320,8 +356,8 @@
 }
 
 .section-save__dialog-button-svg {
-	block-size: 40px;
-	inline-size: 60px;
+	block-size: 63px;
+	inline-size: 73px;
 }
 
 .section-save__dialog-button {
@@ -329,10 +365,9 @@
 }
 
 /* далее медиа запросы */
-
-@media (width <= 740px) {
+/* меняю немного не доходя до 375px, так как появляется скролл */
+@media (width <= 390px) {
 	.content {
-		margin-inline-start: 0;
 		inline-size: 100%;
 	}
 
@@ -364,6 +399,17 @@
 		align-self: center;
 		inline-size: 28px;
 		block-size: 28px;
+	}
+
+	.section-save__dialog {
+		padding-inline: 41px;
+		padding-block: 25px;
+		max-inline-size: 340px;
+	}
+
+	.section-save__dialog-button-svg {
+		block-size: 64px;
+		inline-size: 95px;
 	}
 }
 

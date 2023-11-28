@@ -20,7 +20,7 @@
 		<header class="header content">
 			<div class="header__logo-group">
 				<a class="header__logo">&lt;/html&gt;</a>
-				<h1 class="header__title">ЗАКРЫВАЮЩИй ТЕГ</h1>
+				<h1 class="header__title">Закрывающий тег</h1>
 			</div>
 			<nav class="theme-menu header__theme-menu">
 				<!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -642,14 +642,18 @@
 					class="section-save__button button"
 				>
 					<svg viewBox="0 0 21 21" class="section-save__button-svg">
-						<use href="#floppy" class="floppy"></use>
+						<use href="./svg/floppy(sprite).svg#floppy" class="floppy"></use>
 					</svg>
 					<span class="button__text">Сохранить на память</span>
 				</button>
 				<dialog class="section-save__dialog" id="section-save__dialog">
 					<div class="section-save__dialog-text-container">
-						<svg viewBox="0 0 21 21" class="section-save__dialog-button-svg">
-							<use href="#floppy" class="floppy"></use>
+						<svg
+							viewBox="0 0 21 21"
+							class="section-save__dialog-button-svg"
+							aria-hidden="true"
+						>
+							<use href="./svg/floppy(sprite).svg#floppy" class="floppy"></use>
 						</svg>
 						<p class="section-save__dialog-text card__text">
 							Вставьте дискету, чтобы продолжить
@@ -663,8 +667,6 @@
 				</dialog>
 			</div>
 		</main>
-		<!-- данная иконка не лишняя, я ссылаюсь на эту иконку в проекте тегом use
-		это иконка дискеты, по заданию она вставлена через symbol в конце проекта -->
 		<svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<symbol id="floppy" fill="currentColor">
 				<path
