@@ -36,7 +36,7 @@
 }
 
 .content {
-	inline-size: clamp(375px, 50%, 700px);
+	inline-size: clamp(355px, 50%, 700px);
 }
 
 .header {
@@ -160,8 +160,11 @@
 }
 
 .card__image-container {
+	font-size: 0;
+	display: block;
 	position: relative;
 	margin: 0;
+	border-block: 2px solid var(--accent-color, #000);
 }
 
 .card__watermark {
@@ -191,8 +194,6 @@
 }
 
 .card__img {
-	/* пробовал задавать для блока, но появляется странный отступ снизу, который не смог убрать */
-	border-block: 2px solid var(--accent-color, #000);
 	object-fit: cover;
 	max-block-size: 696px;
 	inline-size: 100%;
@@ -246,7 +247,7 @@
 	margin-block-start: 27px;
 	border: none;
 	padding-block-end: 37px;
-	outline: none;
+	outline: 2px solid transparent;
 	background-color: transparent;
 	transition: outline 0.3s ease;
 	cursor: pointer;
@@ -320,6 +321,8 @@
 .section-save__button {
 	padding-inline: 16px;
 	min-block-size: 55px;
+	/* немножко перепутали место , где надо трансформировать буквы в верхний регистр
+	ниже пишу это у нужного селектора */
 }
 
 .section-save__button-svg {
@@ -361,12 +364,12 @@
 }
 
 .section-save__dialog-button {
+	text-transform: uppercase;
 	inline-size: 100%;
 }
 
 /* далее медиа запросы */
-/* меняю немного не доходя до 375px, так как появляется скролл */
-@media (width <= 390px) {
+@media (width <= 375px) {
 	.content {
 		inline-size: 100%;
 	}
@@ -413,14 +416,10 @@
 	}
 }
 
-@media (width <= 360px) {
+@media (width <= 374px) {
 	.header__logo {
-		font-size: 43px;
+		font-size: clamp(2.4375rem, 0.956rem + 7.4074vw, 2.6875rem);
 	}
 }
 
-@media (width <= 340px) {
-	.header__logo {
-		font-size: 39px;
-	}
-}
+/* Спасибо ещё раз за ревью :) */
